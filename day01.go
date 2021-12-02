@@ -5,7 +5,7 @@ import (
 )
 
 func day1p1() string {
-	depths := readNums("input/day1.txt")
+	depths := readNums("input/day01.txt")
 
 	curDepth := depths[0]
 	increases := 0
@@ -20,7 +20,7 @@ func day1p1() string {
 }
 
 func day1p2() string {
-	depths := readNums("input/day1.txt")
+	depths := readNums("input/day01.txt")
 
 	lastPos := len(depths) - 3
 	lastSum := sumSlice(depths[0:3])
