@@ -14,4 +14,7 @@ func main() {
 
 	answer = day2p2()
 	fmt.Println("day 2, problem 2: " + answer)
+
+	answer = day3p1()
+	fmt.Println("day 3, problem 1: " + answer)
 }
