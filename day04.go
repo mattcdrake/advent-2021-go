@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 )
@@ -126,7 +125,29 @@ func day4p1() string {
 		}
 	}
 
-	fmt.Println(boards[1])
+	return "nope"
+}
+
+func day4p2() string {
+	lines, _ := readLines("input/day04.txt")
+	rawNums := strings.Split(lines[0], ",")
+	nums := convertRawNums(rawNums)
+	boards := linesToBoards(lines[2:])
+	boardsLeft := len(boards)
+	for _, num := range nums {
+		for i, _ := range boards {
+			if boards[i].won {
+				continue
+			}
+
+			boards[i].markNumber(num)
+			if boards[i].won && boardsLeft == 1 {
+				return strconv.Itoa(boards[i].sumUnmarkedNums() * num)
+			} else if boards[i].won {
+				boardsLeft--
+			}
+		}
+	}
 
 	return "nope"
 }
